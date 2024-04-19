@@ -44,8 +44,7 @@ eventForm.addEventListener('submit', (e) => {
   eventForm.reset();
 });
 
-// script.js (continued)
-
+// Handle event click
 // Handle event click
 const handleEventClick = (info) => {
     const eventId = info.event.id;
