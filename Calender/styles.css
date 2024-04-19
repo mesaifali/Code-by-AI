@@ -14,6 +14,10 @@ body {
     color: #fff;
   }
   
+  .event-card .card-header {
+    background-color: #673ab7;
+  }
+  
   .form-check-input:checked {
     background-color: #3f51b5;
     border-color: #3f51b5;
@@ -28,6 +32,11 @@ body {
     height: 600px;
   }
   
+  .fc-event {
+    background-color: #673ab7;
+    border: none;
+  }
+  
   .dark-mode {
     background-color: #212121;
     color: #fff;
@@ -40,4 +49,12 @@ body {
   
   .dark-mode .card-header {
     background-color: #616161;
+  }
+  
+  .dark-mode .event-card .card-header {
+    background-color: #7e57c2;
+  }
+  
+  .dark-mode .fc-event {
+    background-color: #7e57c2;
   }

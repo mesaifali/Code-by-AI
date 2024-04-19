@@ -16,7 +16,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-3 mt-3">
-        <div class="card">
+        <div class="card event-card">
           <div class="card-header">
             <h5 class="card-title">Add Event</h5>
           </div>
@@ -36,6 +36,18 @@
               </div>
               <button type="submit" class="btn btn-primary">Add Event</button>
             </form>
+          </div>
+        </div>
+        <div class="card mt-3">
+          <div class="card-header">
+            <h5 class="card-title">Event List</h5>
+            <div class="form-group mb-3">
+              <label for="eventFilter" class="form-label">Filter by Date</label>
+              <input type="date" class="form-control" id="eventFilter" onchange="filterEvents()">
+            </div>
+          </div>
+          <div class="card-body">
+            <ul class="list-group" id="eventList"></ul>
           </div>
         </div>
       </div>

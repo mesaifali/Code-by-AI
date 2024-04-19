@@ -2,6 +2,8 @@
 const eventForm = document.getElementById('eventForm');
 const calendarEl = document.getElementById('calendar');
 const darkModeSwitch = document.getElementById('darkModeSwitch');
+const eventList = document.getElementById('eventList');
+const eventFilter = document.getElementById('eventFilter');
 
 let calendar;
 let events = [];
@@ -36,6 +38,7 @@ eventForm.addEventListener('submit', (e) => {
 
   events.push(event);
   calendar.addEvent(event);
+  addEventToList(event);
 
   eventForm.reset();
 });
@@ -51,6 +54,7 @@ const handleEventClick = (info) => {
     if (confirmDelete) {
       events.splice(eventIndex, 1);
       info.event.remove();
+      removeEventFromList(eventId);
     }
   }
 };
@@ -73,26 +77,67 @@ darkModeSwitch.addEventListener('change', () => {
 
 // Load events from local storage
 const loadEvents = () => {
-  const storedEvents = localStorage.getItem('events');
-
-  if (storedEvents) {
-    events = JSON.parse(storedEvents);
-    events.forEach((event) => {
-      calendar.addEvent(event);
-    });
-  }
-};
-
-// Save events to local storage
-const saveEvents = () => {
-  localStorage.setItem('events', JSON.stringify(events));
-};
-
-// Initialize the calendar and load events
-document.addEventListener('DOMContentLoaded', () => {
-  loadEvents();
-  initCalendar();
-});
-
-// Save events to local storage when the window is closed
-window.addEventListener('beforeunload', saveEvents);
+    const storedEvents = localStorage.getItem('events');
+  
+    if (storedEvents) {
+      events = JSON.parse(storedEvents);
+      events.forEach((event) => {
+        calendar.addEvent(event);
+        addEventToList(event);
+      });
+    }
+  };
+  
+  // Save events to local storage
+  const saveEvents = () => {
+    localStorage.setItem('events', JSON.stringify(events));
+  };
+  
+  // Add event to the list
+  const addEventToList = (event) => {
+    const listItem = document.createElement('li');
+    listItem.classList.add('list-group-item');
+    listItem.textContent = `${event.title} - ${event.start.toLocaleString().split(',')[0]}`;
+    eventList.appendChild(listItem);
+  };
+  
+  // Remove event from the list
+  const removeEventFromList = (eventId) => {
+    const listItems = eventList.getElementsByTagName('li');
+    for (let i = 0; i < listItems.length; i++) {
+      const listItem = listItems[i];
+      const [title, date] = listItem.textContent.split(' - ');
+      const eventTitle = title.trim();
+      const eventDate = new Date(date).toLocaleString().split(',')[0];
+      const event = events.find((e) => e.title === eventTitle && e.start.toLocaleString().split(',')[0] === eventDate);
+      if (event.id === eventId) {
+        eventList.removeChild(listItem);
+        break;
+      }
+    }
+  };
+  
+  // Filter events by date
+  const filterEvents = () => {
+    const filterDate = eventFilter.value;
+    const listItems = eventList.getElementsByTagName('li');
+    for (let i = 0; i < listItems.length; i++) {
+      const listItem = listItems[i];
+      const [title, date] = listItem.textContent.split(' - ');
+      const eventDate = new Date(date).toLocaleString().split(',')[0];
+      if (filterDate === '') {
+        listItem.style.display = 'list-item';
+      } else {
+        listItem.style.display = (eventDate === filterDate) ? 'list-item' : 'none';
+      }
+    }
+  };
+  
+  // Initialize the calendar and load events
+  document.addEventListener('DOMContentLoaded', () => {
+    loadEvents();
+    initCalendar();
+  });
+  
+  // Save events to local storage when the window is closed
+  window.addEventListener('beforeunload', saveEvents);
