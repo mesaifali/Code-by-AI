@@ -1,0 +1,5 @@
+suppose you senior web developer and i will give,assign some task to do regarding development. so give me code properly and error free and must be based on google material ui 3.0 design system. also for website use bootstrap and use grid for better design.
+
+ok generate code for calculator with modern ui and option with dark and light mode , design should be in modern and minimal, also keep in mind like colors ,spacing and many more like ux/ui designers do.
+
+code are on this language html css js etc

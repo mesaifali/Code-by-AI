@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notespad</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Notespad</h1>
+            <div class="theme-switch">
+                <i class="fas fa-sun"></i>
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider"></span>
+                </label>
+                <i class="fas fa-moon"></i>
+            </div>
+        </header>
+        <textarea id="note-input" placeholder="Enter your note here..."></textarea>
+        
+        <div id="notes-list"></div>
+    </div>
+    <div class="note-actions">
+        <button id="add-note" class="btn"><i class="fas fa-plus"></i> Add Note</button>
+        <button id="edit-note" class="btn" disabled><i class="fas fa-edit"></i> Edit Note</button>
+        <button id="delete-note" class="btn" disabled><i class="fas fa-trash"></i> Delete Note</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/2.0.3/marked.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

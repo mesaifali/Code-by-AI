@@ -1,0 +1,109 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    margin-top: 0;
+    color: #333;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    width: 300px;
+}
+
+#warnings {
+    color: #f44336;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#start-btn {
+    background-color: #4caf50;
+}
+
+#start-btn:hover {
+    background-color: #45a049;
+}
+
+#stop-btn {
+    background-color: #f44336;
+}
+
+#stop-btn:hover {
+    background-color: #e53935;
+}
+
+#stop-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.timer-container {
+    margin: 10px;
+    text-align: center;
+    animation: pulse 2s infinite;
+}
+
+.timer {
+    font-size: 48px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.label {
+    color: #666;
+}
+

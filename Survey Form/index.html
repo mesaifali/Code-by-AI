@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facebook Clone - Survey Form</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="form-card">
+      <div class="form-header">
+        <h1>Facebook Clone Survey</h1>
+        <p>Help us improve our platform by sharing your feedback.</p>
+      </div>
+      <form class="survey-form">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input type="number" id="age" name="age" placeholder="Enter your age" required>
+        </div>
+        <div class="form-group">
+          <label>Gender:</label>
+          <div class="radio-group">
+            <label for="gender-male">
+              <input type="radio" id="gender-male" name="gender" value="male" required>
+              Male
+            </label>
+            <label for="gender-female">
+              <input type="radio" id="gender-female" name="gender" value="female" required>
+              Female
+            </label>
+            <label for="gender-other">
+              <input type="radio" id="gender-other" name="gender" value="other" required>
+              Other
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Interests:</label>
+          <div class="checkbox-group">
+            <label for="interest-socializing">
+              <input type="checkbox" id="interest-socializing" name="interests[]" value="socializing">
+              Socializing
+            </label>
+            <label for="interest-learning">
+              <input type="checkbox" id="interest-learning" name="interests[]" value="learning">
+              Learning
+            </label>
+            <label for="interest-entertainment">
+              <input type="checkbox" id="interest-entertainment" name="interests[]" value="entertainment">
+              Entertainment
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="feedback">Feedback:</label>
+          <textarea id="feedback" name="feedback" placeholder="Enter your feedback" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

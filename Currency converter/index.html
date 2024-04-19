@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Currency Converter</h1>
+        <div class="converter">
+            <div class="input-box">
+                <label for="amount">Amount</label>
+                <input type="text" id="amount" placeholder="Enter amount">
+            </div>
+            <div class="currency-box">
+                <div class="currency-select">
+                    <label for="source-currency">From</label>
+                    <select id="source-currency"></select>
+                </div>
+                <button id="swap-btn"><i class="fas fa-exchange-alt"></i></button>
+                <div class="currency-select">
+                    <label for="destination-currency">To</label>
+                    <select id="destination-currency"></select>
+                </div>
+            </div>
+            <div class="output-box">
+                <label for="result">Result</label>
+                <input type="text" id="result" placeholder="Converted amount" disabled>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
