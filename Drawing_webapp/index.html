@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drawing Web App</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <div class="container">
+    <div class="canvas-container">
+      <canvas id="canvas"></canvas>
+    </div>
+
+
+    <div class="controls">
+      <div class="control-group">
+        <label for="colorPicker">Color:</label>
+        <input type="color" id="colorPicker" value="#000000">
+      </div>
+      <div class="control-group">
+        <label for="brushSize">Brush Size:</label>
+        <input type="range" id="brushSize" min="1" max="50" value="10">
+      </div>
+      <div class="control-group">
+        <label for="circleSize">Circle Size:</label>
+        <input type="range" id="circleSize" min="1" max="200" value="50">
+      </div>
+      <div class="control-group">
+        <label for="starSize">Star Size:</label>
+        <input type="range" id="starSize" min="1" max="200" value="50">
+      </div>
+      <div class="control-group">
+        <label for="rectaSize">Rectangle Size:</label>
+        <input type="range" id="rectaSize" min="1" max="200" value="50">
+      </div>
+
+
+      <div class="control-group">
+        <button id="freehandBtn"><i class="fas fa-pen"></i>Freehand</button>
+        <button id="circleBtn"><i class="fas fa-circle"></i>Circle</button>
+        <button id="starBtn"><i class="fas fa-star"></i>Star</button>
+        <button id="rectangleBtn"><i class="fas fa-square"></i>Rectangle</button>
+        <button id="undoBtn"><i class="fas fa-undo"></i>Undo</button>
+        <button id="redoBtn"><i class="fas fa-redo"></i>Redo</button>
+        <button id="eraseBtn"><i class="fas fa-eraser"></i>Erase</button>
+        <button id="clearBtn"><i class="fas fa-trash-alt"></i>Clear Canvas</button>
+        <button id="saveBtn"><i class="fas fa-save"></i>Save Image</button>
+        
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

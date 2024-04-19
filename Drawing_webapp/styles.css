@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    transition: background-color 0.3s ease;
+
+  }
+  
+  #container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  #canvas {
+    border: 2px solid #ddd;
+    background-color: #fff; 
+    cursor: crosshair;
+  }
+
+
+  #toolbar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button.active {
+    background-color: #0056b3;
+  }
+  
+  input[type="color"] {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .icon {
+    margin-right: 10px;
+  }
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+ 
+  }
+
+  .label {
+    text-align: center; /* Align text in the center */
+  }
+  .control-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: wra;
+    margin: 10px;
+    gap: 12px;
+  }
+
+  button i {
+    padding-right: 8px;
+  }
