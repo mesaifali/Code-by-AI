@@ -16,6 +16,7 @@ const initCalendar = () => {
     editable: true,
     eventClick: handleEventClick,
     eventDrop: handleEventDrop,
+    eventDidMount: renderEventAsBox,
   };
 
   calendar = new FullCalendar.Calendar(calendarEl, calendarOptions);
@@ -31,52 +32,71 @@ eventForm.addEventListener('submit', (e) => {
   const eventTime = document.getElementById('eventTime').value;
 
   const event = {
-    title: eventTitle,
+    title: '',
     start: `${eventDate}T${eventTime}`,
     allDay: false,
   };
 
   events.push(event);
   calendar.addEvent(event);
-  addEventToList(event);
+  addEventToList(event, eventTitle);
 
   eventForm.reset();
 });
 
+// script.js (continued)
+
 // Handle event click
 const handleEventClick = (info) => {
-  const eventId = info.event.id;
-  const eventIndex = events.findIndex((event) => event.id === eventId);
-
-  if (eventIndex !== -1) {
-    const confirmDelete = confirm('Are you sure you want to delete this event?');
-
-    if (confirmDelete) {
-      events.splice(eventIndex, 1);
-      info.event.remove();
-      removeEventFromList(eventId);
+    const eventId = info.event.id;
+    const eventIndex = events.findIndex((event) => event.id === eventId);
+  
+    if (eventIndex !== -1) {
+      const confirmDelete = confirm('Are you sure you want to delete this event?');
+  
+      if (confirmDelete) {
+        events.splice(eventIndex, 1);
+        info.event.remove();
+        removeEventFromList(eventId);
+      }
     }
-  }
-};
-
-// Handle event drag and drop
-const handleEventDrop = (info) => {
-  const eventId = info.event.id;
-  const eventIndex = events.findIndex((event) => event.id === eventId);
-
-  if (eventIndex !== -1) {
-    events[eventIndex].start = info.event.start;
-    events[eventIndex].end = info.event.end;
-  }
-};
-
-// Handle dark mode switch
-darkModeSwitch.addEventListener('change', () => {
-  document.body.classList.toggle('dark-mode');
-});
-
-// Load events from local storage
-const loadEvents = () => {
+  };
+  
+  // Handle event drag and drop
+  const handleEventDrop = (info) => {
+    const eventId = info.event.id;
+    const eventIndex = events.findIndex((event) => event.id === eventId);
+  
+    if (eventIndex !== -1) {
+      events[eventIndex].start = info.event.start;
+      events[eventIndex].end = info.event.end;
+    }
+  };
+  
+  // Render event as a box without title
+  const renderEventAsBox = (info) => {
+    const eventElement = info.el;
+    eventElement.innerHTML = '';
+    eventElement.style.backgroundColor = getRandomColor();
+  };
+  
+  // Generate random color for event box
+  const getRandomColor = () => {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  };
+  
+  // Handle dark mode switch
+  darkModeSwitch.addEventListener('change', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+  
+  // Load events from local storage
+  const loadEvents = () => {
     const storedEvents = localStorage.getItem('events');
   
     if (storedEvents) {
@@ -94,10 +114,10 @@ const loadEvents = () => {
   };
   
   // Add event to the list
-  const addEventToList = (event) => {
+  const addEventToList = (event, eventTitle = '') => {
     const listItem = document.createElement('li');
     listItem.classList.add('list-group-item');
-    listItem.textContent = `${event.title} - ${event.start.toLocaleString().split(',')[0]}`;
+    listItem.textContent = `${eventTitle || 'Event'} - ${event.start.toLocaleString().split(',')[0]}`;
     eventList.appendChild(listItem);
   };
   
@@ -109,7 +129,7 @@ const loadEvents = () => {
       const [title, date] = listItem.textContent.split(' - ');
       const eventTitle = title.trim();
       const eventDate = new Date(date).toLocaleString().split(',')[0];
-      const event = events.find((e) => e.title === eventTitle && e.start.toLocaleString().split(',')[0] === eventDate);
+      const event = events.find((e) => e.title === '' && e.start.toLocaleString().split(',')[0] === eventDate);
       if (event.id === eventId) {
         eventList.removeChild(listItem);
         break;

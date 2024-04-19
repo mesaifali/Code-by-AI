@@ -37,6 +37,34 @@ body {
     border: none;
   }
   
+  .fc-header-toolbar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .fc-toolbar-title {
+    font-size: 24px;
+    font-weight: 500;
+  }
+  
+  .fc-prev-button,
+  .fc-next-button {
+    font-size: 24px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #3f51b5;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .fc-prev-button:hover,
+  .fc-next-button:hover {
+    background-color: #283593;
+  }
+  
   .dark-mode {
     background-color: #212121;
     color: #fff;
@@ -57,4 +85,14 @@ body {
   
   .dark-mode .fc-event {
     background-color: #7e57c2;
+  }
+  
+  .dark-mode .fc-prev-button,
+  .dark-mode .fc-next-button {
+    background-color: #7e57c2;
+  }
+  
+  .dark-mode .fc-prev-button:hover,
+  .dark-mode .fc-next-button:hover {
+    background-color: #5e35b1;
   }
