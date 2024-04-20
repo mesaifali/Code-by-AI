@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result From PDF</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>BCA RESULT</h1>
+    </header>
+    <main>
+        <div class="container">
+            <label for="semesterSelect">Select Semester:</label>
+            <select id="semesterSelect">
+                <option value="semester1">Semester 1</option>
+                <option value="semester2">Semester 2</option>
+                <option value="semester3">Semester 3</option>
+                <option value="semester4">Semester 4</option>
+                <option value="semester5">Semester 5</option>
+                <option value="semester6">Semester 6</option>
+                <option value="semester7">Semester 7</option>
+                <option value="semester8">Semester 8</option>
+            </select>
+            <br><br>
+            <label for="regNoInput">Enter Registration Number:</label>
+            <input type="text" id="regNoInput">
+            <br>
+            <button onclick="searchResult()">Search</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 BCA RESULT</p>
+    </footer>
+
+    <div id="popup" class="popup">
+        <div class="popup-content" id="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <div id="popupMessage"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

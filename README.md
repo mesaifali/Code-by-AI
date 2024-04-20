@@ -32,7 +32,8 @@ Projects (with Links)
     
     9.Website-Hero Section
     
-    10.
+    10.Pdf Content Search(Search Result From Pdf)----basically university like TU published thier result in pdf format so i make it eaiser.
+    this is just a basic design with basic code.
     
     11.
     
